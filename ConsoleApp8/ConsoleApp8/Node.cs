@@ -56,10 +56,5 @@ namespace ConsoleApp8
 			node2.edges.Add(edge);
 			return edge;
 		}
-		public static void Disconnect(Edge edge)
-		{
-			edge.From.edges.Remove(edge);
-			edge.To.edges.Remove(edge);
-		}
 	}
 }
