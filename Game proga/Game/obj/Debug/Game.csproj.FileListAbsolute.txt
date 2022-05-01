@@ -17,3 +17,13 @@ C:\Users\НОРД\github\Game\Game proga\Game\Game\obj\Debug\Game.csproj.Generat
 C:\Users\НОРД\github\Game\Game proga\Game\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
 C:\Users\НОРД\github\Game\Game proga\Game\Game\obj\Debug\Game.exe
 C:\Users\НОРД\github\Game\Game proga\Game\Game\obj\Debug\Game.pdb
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.csproj.AssemblyReference.cache
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.Properties.Resources.resources
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.csproj.GenerateResource.cache
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.csproj.CoreCompileInputs.cache
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.exe
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.pdb
+C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.exe.config
+C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.exe
+C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.pdb
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.Menu.resources
