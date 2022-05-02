@@ -23,7 +23,6 @@ namespace Game
             BackgroundImageLayout = ImageLayout.Stretch;
             var a = new Planes(this);
             a.Main();
-
         }
     }
 
