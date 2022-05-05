@@ -39,18 +39,89 @@ namespace Game
             {
                 var pathToImage = buttonPath + buttonsHeads[i];
                 var button = CreateButton(pathToImage, buttonSize, initialButtonPosition);
-                AddMouseEffects(button, pathToImage);
+                AddMouseEffects(button);
                 buttons[buttonsHeads[i]] = button;
                 initialButtonPosition.Y += button.Height + buttonsOffset;
             }
+
+            var panel = new Panel();
+            SetOptionPanel(panel);
+            Controls.Add(panel);
+
             SetPlayButton(buttons["Play.png"]);
             SetContinueButton(buttons["Continue.png"]);
             SetExitButton(buttons["Exit.png"]);
+            SetOpenningOptionsPanel(buttons["Options.png"], panel);
+
             foreach (var elem in buttons.Values)
                 Controls.Add(elem);
             Controls.Add(title);
             Controls.Add(icon);
         }
+
+        public void SetOptionPanel(Panel panel)
+        {
+            panel.Size = new Size(400, 400);
+            panel.Location = new Point(ClientSize.Width / 2 - panel.Width / 2, ClientSize.Height / 2 - panel.Height / 2);
+            panel.BackColor = Color.Transparent;
+            panel.BackgroundImage = Image.FromFile(@"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\фон опций.jpg");
+            panel.BackgroundImageLayout = ImageLayout.Stretch;
+            panel.Hide();
+
+            var pathBackButton = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\backbutton.png";
+            var sizeBackButton = new Size(50, 50);
+            var backButton = CreateButton(pathBackButton, sizeBackButton, new Point(panel.Width - sizeBackButton.Width - 20, panel.Height - sizeBackButton.Height - 20));
+            AddMouseEffects(backButton);
+            SetClosingOptionsPanel(backButton, panel);
+            panel.Controls.Add(backButton);
+
+            var a = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\бегунок.png";
+            var b = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\тело бегунка.png";
+            var slider = new Slider(new Point(50, 100), new Size(300, 50), a, b);
+            panel.Controls.Add(slider);
+
+            var label = new Label()
+            {
+                Location = new Point(50, 50),
+                Size = new Size(400, 40),
+                Text = "Громкость музыки",
+                Font = new Font("Times New Roman", 22, FontStyle.Bold),
+            };
+            panel.Controls.Add(label);
+        }
+
+        public List<Control> GetControls(Control.ControlCollection controls)
+        {
+            var result = new List<Control>();
+            foreach (var item in controls)
+                result.Add((Control)item);
+            return result;
+        }
+
+        public void SetClosingOptionsPanel(Button button, Panel panel)
+        {
+            button.Click += (sender, args) =>
+            {
+                panel.Hide();
+                foreach (var item in GetControls(Controls).Where(x => x is Button))
+                {
+                    item.Enabled = true;
+                }
+            };
+        }
+
+        public void SetOpenningOptionsPanel(Button button, Panel panel)
+        {
+            button.Click += (sender, args) =>
+            {
+                panel.Show();
+                foreach (var item in GetControls(Controls).Where(x => x is Button))
+                {
+                    item.Enabled = false;
+                }
+            };
+        }
+
         public void SetPlayButton(Button button)
         {
             button.Click += (sender, args) =>
@@ -73,8 +144,9 @@ namespace Game
             button.Click += (sender, args) => Application.Exit();
         }
 
-        public static void AddMouseEffects(Button button, string pathToImage)
+        public static void AddMouseEffects(Button button)
         {
+            var pathToImage = button.Tag.ToString();
             var pathToPressedImage = pathToImage.Substring(0, pathToImage.Length - 4) + "Pressed.png";
             button.MouseDown += (sender, args) =>
             {
@@ -117,6 +189,18 @@ namespace Game
                     BorderSize = 0
                 }
             };
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Menu
+            // 
+            this.ClientSize = new System.Drawing.Size(582, 457);
+            this.Name = "Menu";
+            this.ResumeLayout(false);
+
         }
     }
 }
