@@ -40,7 +40,6 @@ namespace Game
                 Location = new Point(Location.X + Speed, Location.Y);
                 Refresh();
             };
-            
         }
     }
 }

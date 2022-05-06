@@ -64,7 +64,7 @@ namespace Game
             panel.Size = new Size(400, 400);
             panel.Location = new Point(ClientSize.Width / 2 - panel.Width / 2, ClientSize.Height / 2 - panel.Height / 2);
             panel.BackColor = Color.Transparent;
-            panel.BackgroundImage = Image.FromFile(@"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\фон опций.jpg");
+            panel.BackgroundImage = Image.FromFile(@"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\фон опций.png");
             panel.BackgroundImageLayout = ImageLayout.Stretch;
             panel.Hide();
 
@@ -75,19 +75,52 @@ namespace Game
             SetClosingOptionsPanel(backButton, panel);
             panel.Controls.Add(backButton);
 
-            var a = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\бегунок.png";
-            var b = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\тело бегунка.png";
-            var slider = new Slider(new Point(50, 100), new Size(300, 50), a, b);
-            panel.Controls.Add(slider);
-
             var label = new Label()
             {
-                Location = new Point(50, 50),
+                Location = new Point(50, 40),
                 Size = new Size(400, 40),
                 Text = "Громкость музыки",
                 Font = new Font("Times New Roman", 22, FontStyle.Bold),
             };
             panel.Controls.Add(label);
+
+            var a = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\бегунок.png";
+            var b = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\тело бегунка.png";
+            var slider = new Slider(new Point(50, 100), new Size(300, 50), a, b);
+            panel.Controls.Add(slider);
+
+            var musicLabel = new Label()
+            {
+                Location = new Point(slider.Left, slider.Bottom + 40),
+                Text = "Без музыки:",
+                Size = new Size(150, 30),
+                Font = new Font("Times New Roman", 18, FontStyle.Bold)
+            };
+            panel.Controls.Add(musicLabel);
+
+            var muteMusicButtonPath = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\audio.png";
+            var sizeMuteMusicButton = new Size(75, 75);
+            var muteMusicButton = CreateButton(muteMusicButtonPath, sizeMuteMusicButton, new Point(musicLabel.Left + musicLabel.Width / 2 - sizeMuteMusicButton.Width / 2, musicLabel.Bottom + 10));
+            AddMouseEffects(muteMusicButton);
+            panel.Controls.Add(muteMusicButton);
+
+            var soundLabel = new Label()
+            {
+                Location = new Point(musicLabel.Location.X + musicLabel.Width + 20, musicLabel.Location.Y),
+                Text = "Без звуков:",
+                Size = musicLabel.Size,
+                Font = musicLabel.Font
+            };
+            panel.Controls.Add(soundLabel);
+
+
+            var muteSoundButtonPath = @"C:\Users\НОРД\github\Game\Game proga\Game\Sprites\sounds.png";
+            var sizeMuteSoundButton = new Size(75, 75);
+            var muteSoundButton = CreateButton(muteSoundButtonPath, sizeMuteSoundButton, new Point(soundLabel.Left + soundLabel.Width / 2 - sizeMuteMusicButton.Width / 2 - 15, muteMusicButton.Location.Y));
+            AddMouseEffects(muteSoundButton);
+            panel.Controls.Add(muteSoundButton);
+
+            
         }
 
         public List<Control> GetControls(Control.ControlCollection controls)
@@ -126,9 +159,9 @@ namespace Game
         {
             button.Click += (sender, args) =>
             {
-                var form = new First(this);
+                var first = new First(this);
                 Hide();
-                form.Show();
+                first.Show();
             };
         }
 
