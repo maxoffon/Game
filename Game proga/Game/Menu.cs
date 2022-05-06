@@ -126,7 +126,7 @@ namespace Game
         {
             button.Click += (sender, args) =>
             {
-                var form = new First();
+                var form = new First(this);
                 Hide();
                 form.Show();
             };
@@ -189,18 +189,6 @@ namespace Game
                     BorderSize = 0
                 }
             };
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // Menu
-            // 
-            this.ClientSize = new System.Drawing.Size(582, 457);
-            this.Name = "Menu";
-            this.ResumeLayout(false);
-
         }
     }
 }
