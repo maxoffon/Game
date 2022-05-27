@@ -46,13 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plane.cs" />
-    <Compile Include="First.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ButtonExtensions.cs" />
+    <Compile Include="Bomb.cs">
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="First.Designer.cs">
-      <DependentUpon>First.cs</DependentUpon>
+    <Compile Include="House.cs">
+      <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Plane.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Preview.cs" />
+    <Compile Include="ILevel.cs" />
+    <Compile Include="AudioManager.cs" />
+    <Compile Include="PointExtensions.cs" />
+    <Compile Include="FirstLevel.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>

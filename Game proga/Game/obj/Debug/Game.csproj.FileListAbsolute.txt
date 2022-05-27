@@ -26,7 +26,6 @@ C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.pdb
 C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.exe.config
 C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.exe
 C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Game.pdb
-C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.Menu.resources
 C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\Interop.WMPLib.dll
 C:\Users\НОРД\github\Game\Game proga\Game\bin\Debug\AxInterop.WMPLib.dll
 C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Interop.WMPLib.dll
@@ -36,3 +35,4 @@ C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Interop.MediaPlayer.dll
 C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Interop.WMLSS.dll
 C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Interop.WMPDXMLib.dll
 C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Interop.WMPLauncher.dll
+C:\Users\НОРД\github\Game\Game proga\Game\obj\Debug\Game.Menu.resources

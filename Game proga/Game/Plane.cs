@@ -1,45 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Game
 {
-    class Plane : PictureBox
+    class Plane : Control
     {
-        static int Speed { get; } = 20;
-        Form MainForm;
+        public readonly int speed;
 
-        public Plane(Form form, Image image)
+        public Plane(Point location, Size size, int speedInt, Image image)
         {
+            Location = location;
+            Size = size;
+            speed = speedInt;
             BackgroundImage = image;
             BackgroundImageLayout = ImageLayout.Stretch;
-            BackColor = Color.Transparent;
-            Size = new Size(174, 45);
-            Location = new Point(-174, 50);
-            MainForm = form;
         }
 
-        public void Start()
+        public void Launch(Menu form)
         {
-            var timer = new Timer();
-            timer.Interval = 100;
-            timer.Start();
+            Timer timer = new Timer() { Interval = 50 };
+            form.Paint += (sender, args) => args.Graphics.DrawImage(BackgroundImage, Location.X, Location.Y, Size.Width, Size.Height);
             timer.Tick += (sender, args) =>
             {
-                if (Location.X >= MainForm.ClientSize.Width)
-                {
-                    timer.Stop();
-                    MainForm.Controls.Remove(this);
-                }
-                Location = new Point(Location.X + Speed, Location.Y);
-                Refresh();
+                if (Location.X < -Size.Width || Location.X > form.Width) timer.Stop();
+                form.Refresh();
+                Location = new Point(Location.X + speed, Location.Y);
             };
+            timer.Start();
         }
     }
 }
