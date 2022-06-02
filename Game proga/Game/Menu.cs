@@ -109,7 +109,6 @@ namespace Game
                     g.DrawImage(elem.BackgroundImage, elem.Location.X, elem.Location.Y, elem.Size.Width, elem.Size.Height);
                 }
             };
-
             MouseDown += (sender, args) =>
             {
                 var cursor = args.Location;

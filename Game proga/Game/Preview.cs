@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading.Tasks;
 
 namespace Game
 {
@@ -27,6 +28,7 @@ namespace Game
             MainForm.BackgroundImage = null;
             MainForm.BackColor = Color.Black;
             MainForm.Click += (sender, args) => { clicked = true; };
+            if (manager.GetIsSoundOn) MainForm.Click += (sender, args) => manager.PlaySound();
             MainForm.Refresh();
             manager.MusicMixer.controls.stop();
 

@@ -10,6 +10,12 @@ namespace Game
 {
     class House : Control
     {
-        double health;
+        public House(Point location, Size size, Image background)
+        {
+            Location = location;
+            Size = size;
+            BackgroundImage = background;
+            BackgroundImageLayout = ImageLayout.Stretch;
+        }
     }
 }

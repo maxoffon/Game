@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Drawing;
+using System.Reflection;
 using System.Media;
 using WMPLib;
 namespace Game
