@@ -19,12 +19,14 @@ namespace Game
         {
             MainForm = form;
         }
-        async public void Initialize()
+        public void Initialize()
         {
+            var a = new BackgroundWorker();
             var preview = new Preview(MainForm);
-            await MakeTask(() => preview.Initialize());
-            InitGame();
-            InitPlanes();
+            a.DoWork += (sender, args) => preview.Initialize();
+            a.RunWorkerCompleted += (sender, args) => InitGame();
+            a.RunWorkerCompleted += (sender, args) => InitPlanes();
+            a.RunWorkerAsync();
         }
 
         public Task MakeTask(Action method)

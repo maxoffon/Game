@@ -29,7 +29,7 @@ namespace Game
             MainForm.BackColor = Color.Black;
             MainForm.Click += (sender, args) => { clicked = true; };
             if (manager.GetIsSoundOn) MainForm.Click += (sender, args) => manager.PlaySound();
-            MainForm.Refresh();
+            Refresh();
             manager.MusicMixer.controls.stop();
 
             MakePause(1500);
@@ -37,6 +37,8 @@ namespace Game
             if (manager.GetIsMusicOn) SetUpAudioManager(manager);
             InitPreStory();
         }
+
+        public void Refresh() => MainForm.BeginInvoke(new Action(MainForm.Refresh));
 
         private void InitPreStory()
         {
@@ -72,12 +74,12 @@ namespace Game
                 if (clicked)
                 {
                     result = text;
-                    MainForm.Refresh();
+                    Refresh();
                     break;
                 }
                 result += elem;
                 MakePause(time);
-                MainForm.Refresh();
+                Refresh();
             }
             clicked = false;
         }
@@ -86,7 +88,7 @@ namespace Game
             MainForm.ClearInvocationList("Paint");
             MainForm.BackgroundImage = Image.FromFile(Menu.pathToSprites + "фон21.jpg");
             MainForm.Paint += (sender, args) => args.Graphics.DrawImage(Image.FromFile(Menu.pathToSprites + "фон опций.png"), MainForm.Width / 2 - 250, MainForm.Height / 2 - 200, 500, 420);
-            MainForm.Refresh();
+            Refresh();
             MakePause(1000);
             PrintText("Задача:", new Point(205, 170), Brushes.Black, new Font("Times New Roman", 20, FontStyle.Bold));
             MakePause(500);

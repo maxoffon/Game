@@ -88,7 +88,6 @@ namespace Game
         public Menu()
         {
             InitStartMenu();
-            
             var musicMuter = CreateButton("audio.png", new Point(Right - 70, Top + 10), new Size(50, 50));
             musicMuter.SetAudioButton(audioManager);
 
